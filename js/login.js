@@ -1,15 +1,13 @@
 function access(){
-    let user = document.getElementById("user").value;
-    let pass = document.getElementById("pass").value;
+    let user = document.getElementById("user");
+    let pass = document.getElementById("pass");
 
-    if (user > 0 & pass > 0) {
+    if (user.value.length > 0 && pass.value.length > 0) {
         return true;
     } else {
         return false;
     }
 }
-
-access();
 
 let ingresar = document.getElementById("regBtn");
 
