@@ -9,13 +9,15 @@ function access(){
     }
 }
 
+access();
+
 let ingresar = document.getElementById("regBtn");
 
 ingresar.addEventListener("click", () => {
     if (access()) {
-        location.replace("main.html");
-    } else {
         location.replace("index.html");
+    } else {
+        location.replace("login.html");
     }
     
 } )
