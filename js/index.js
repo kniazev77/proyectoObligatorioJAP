@@ -12,14 +12,3 @@ document.addEventListener("DOMContentLoaded", function(){
         window.location = "products.html"
     });
 });
-
-/*
-document.addEventListener("DOMContentLoaded", function () {
-    if (logueo()) {
-        return window.location.replace("index.html");
-    } else {
-        return window.location.replace("login.html");
-    }
-}
-)
-*/
