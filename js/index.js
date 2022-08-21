@@ -1,15 +1,21 @@
-document.addEventListener("DOMContentLoaded", function(){
+function access(){
+    let user = document.getElementById("user");
+    let pass = document.getElementById("pass");
+
+    if (user.value.length > 0 && pass.value.length > 0) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+let ingresar = document.getElementById("regBtn");
+
+ingresar.addEventListener("click", () => {
+    if (access()) {
+        location.replace("home.html");
+    } else {
+        location.replace("index.html");
+    }
     
-    document.getElementById("autos").addEventListener("click", function() {
-        localStorage.setItem("catID", 101);
-        window.location = "products.html"
-    });
-    document.getElementById("juguetes").addEventListener("click", function() {
-        localStorage.setItem("catID", 102);
-        window.location = "products.html"
-    });
-    document.getElementById("muebles").addEventListener("click", function() {
-        localStorage.setItem("catID", 103);
-        window.location = "products.html"
-    });
-});
+} )
