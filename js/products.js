@@ -1,7 +1,9 @@
 // CREO FUNCION async PARA TRAER LOS DATOS DEL FETCH Y LE INDICO QUE SE TRATA DE UN JSON PARA QUE PUEDA INTERPRETARLO
 
 async function traerDatos() {
-    let llamada = await fetch('https://japceibal.github.io/emercado-api/cats_products/101.json')
+    let catSelector = localStorage.getItem("catID");
+    let linkProductos = "https://japceibal.github.io/emercado-api/cats_products/"+ catSelector + ".json" 
+    let llamada = await fetch(linkProductos);
     let llamadaInter = await llamada.json();
  
 // LLAMO AL <div> DEL HTML CORRESPONDIENTE PARA MANEJAR LA SECCION DONDE QUIERO INSERTAR EL LISTADO DE PRODUCTOS 
@@ -11,7 +13,6 @@ async function traerDatos() {
 // USO UN for PARA RECORRER LOS ELEMENTOS DEL LISTADO JSON QUE TRAJE, OBTENER LOS ATRIBUTOS QUE QUIERO E INSERTARLOS EN LA SECCION
 for (let elemento of llamadaInter.products) {
    
-
 // TODA LA ESTRUCTURA QUE VA A ADOPTAR CADA PRODUCTO DE LA PAGINA SE DECLARA LUEGO DEL InnerHTML EN FORMATO HTML ENTRE COMILLAS `` 
 // POR CADA PRODUCTO QUE LEA EL JS VA A INSERTAR UNA NUEVA ESTRUCTURA
 
