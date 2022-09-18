@@ -1,5 +1,3 @@
-// CREO FUNCION async PARA TRAER LOS DATOS DEL FETCH Y LE INDICO QUE SE TRATA DE UN JSON PARA QUE PUEDA INTERPRETARLO
-
 let currentProductsList = [];
 let insertarListado = document.getElementById('cat-list-container');
 
@@ -58,7 +56,7 @@ function showDatos() {
             ((maxCost === undefined) || (maxCost != undefined && parseInt(elemento.cost) <= maxCost))){
    
                 insertarListado.innerHTML += `
-                <div class="list-group-item list-group-item-action cursor-active">
+                <div class="list-group-item list-group-item-action cursor-active" onclick="setProdID(${elemento.id})">
                 <div class="row">
                     <div class="col-3">
                         <img src="${elemento.image}" class="img-thumbnail">
@@ -77,6 +75,11 @@ function showDatos() {
     }
 } showDatos();
 
+function setProdID(id) {
+    localStorage.setItem("prodID", id);
+    location.replace("product-info.html")
+} //setProdID();
+
 function sortAndShowProducts(sortCriteria, productsArray){
     currentSortCriteria = sortCriteria;
 
@@ -86,7 +89,6 @@ function sortAndShowProducts(sortCriteria, productsArray){
 
     currentProductsList = sortProducts(currentSortCriteria, currentProductsList);
 
-    //Muestro los productos ordenados
     showDatos();
 }
 
@@ -118,8 +120,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     
     document.getElementById("rangeFilterCount").addEventListener("click", function(){
-        //Obtengo el mínimo y máximo de los intervalos para filtrar por cantidad
-        //de productos por categoría.
+
         minCost = document.getElementById("rangeFilterPriceMin").value;
         maxCost = document.getElementById("rangeFilterPriceMax").value;
     

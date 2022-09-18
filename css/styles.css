@@ -188,3 +188,31 @@ a.custom-card:hover {
 .checked {
   color: orange;
 }
+
+.commentstitle {
+  text-align: center;
+  }
+
+.cardestilo {
+  background-color: whitesmoke;
+  margin-top: 5px;
+  padding: 5px;
+}
+
+.commentstitle {
+  background-color: rgb(93, 209, 114);
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding: 5px;
+}
+
+.userscomments {
+  background-color: whitesmoke;
+  padding: 5px;
+  margin: 5px;
+}
+
+.enviarcomment {
+  margin-top: 5px;
+  float: right;
+}

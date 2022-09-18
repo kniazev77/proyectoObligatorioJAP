@@ -39,3 +39,11 @@ let getJSONData = function(url){
         return result;
     });
 }
+
+const headerSec = document.getElementById('headerSecc');
+
+let correoIngresado = localStorage.getItem("mail");
+headerSec.innerHTML += `
+<li class="nav-item">
+  <a class="nav-link active" href="my-profile.html">${correoIngresado}</a>
+</li>`
