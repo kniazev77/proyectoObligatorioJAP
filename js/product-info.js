@@ -2,6 +2,9 @@ let comentariosProducto = [];
 let atributosProducto = [];
 let insertarInfo = document.getElementById('infoProducto');
 let usuarioActivo = localStorage.getItem('mail');
+let currentProductsList = [];
+
+let relatedProd = document.getElementById('relatedProd');
 
 async function productInfo() {
     let prodId = localStorage.getItem("prodID");
@@ -12,7 +15,15 @@ async function productInfo() {
     let prodComment = "https://japceibal.github.io/emercado-api/products_comments/" + prodId + ".json"
     let llamada2 = await fetch(prodComment);
     comentariosProducto = await llamada2.json();
-    console.log(comentariosProducto);
+  //  console.log(comentariosProducto);
+
+    let catSelector = localStorage.getItem("catID");
+    let linkProductos = "https://japceibal.github.io/emercado-api/cats_products/"+ catSelector + ".json" 
+    let llamadaNew = await fetch(linkProductos);
+    let llamadaInter = await llamadaNew.json();
+    currentProductsList = llamadaInter.products;
+
+    console.log(currentProductsList)
 
 
     //console.log(atributosProducto);
@@ -84,33 +95,56 @@ function showDatos() {
     <div>
         <h4 class="commentstitle"> Opina sobre el producto </h4>
     </div>
-        <form>
-            <div class="mb-3">
-                <div class="mb-3 row">
-                    <label for="staticEmail" class="col-sm-2 col-form-label">Ususario</label>
-                        <div class="col-sm-10">
-                            <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="${usuarioActivo}">
-                        </div>
-                </div>
-
+        <div>
+            <form>
                 <div class="mb-3">
-                    <label for="exampleFormControlTextarea1" class="form-label">Cuentanos sobre el producto:</label>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    <div class="mb-3 row">
+                        <label for="staticEmail" class="col-sm-2 col-form-label">Ususario</label>
+                            <div class="col-sm-10">
+                                <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="${usuarioActivo}">
+                            </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="exampleFormControlTextarea1" class="form-label">Cuentanos sobre el producto:</label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    </div>
+
+                    <select class="form-select" aria-label="Default select example">
+                        <option selected>Calificación</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                    <button type="submit" class="btn btn-primary mb-3 enviarcomment">Enviar</button>
                 </div>
+            </form>
+            <br>
+            <br>
+            <hr>
+        </div>`
 
-                <select class="form-select" aria-label="Default select example">
-                    <option selected>Calificación</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                </select>
-                <button type="submit" class="btn btn-primary mb-3 enviarcomment">Enviar</button>
-            </div>
-        </form>`
+    insertarInfo.innerHTML+= `
+    <div>
+    <h4 class="commentstitle">También podría interesarte:</h4>
+    </div>`
 
-
+    for (producto of currentProductsList) {
+        if (producto.id != localStorage.getItem("prodID")) {
+            relatedProd.innerHTML+= `
+                <div class="col-md-3">
+                        <div class="card mb-4 shadow-sm custom-card cursor-active"  style="width: 18rem;" onclick="setProdID(${producto.id})">
+                        <img class="bd-placeholder-img card-img-top" src="${producto.image}">
+                        <h4 class="m-3 text-center">${producto.name}</h3>
+                        </div>
+                    </div>`
+        }
+    }
 }
 
-
+function setProdID(id) {
+    localStorage.setItem("prodID", id);
+    location.replace("product-info.html")
+}
