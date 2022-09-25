@@ -40,10 +40,35 @@ let getJSONData = function(url){
     });
 }
 
-const headerSec = document.getElementById('headerSecc');
-
+// const headerSec = document.getElementById('headerSecc');
+let endsession = document.getElementById('endsession');
+let dropdownTitle = document.getElementById('navbarDarkDropdownMenuLink');
 let correoIngresado = localStorage.getItem("mail");
-headerSec.innerHTML += `
+
+dropdownTitle.innerHTML +=`${correoIngresado}`
+
+endsession.addEventListener('click', ()=> {
+  localStorage.removeItem("mail")
+});
+
+/*
+`
 <li class="nav-item">
   <a class="nav-link active" href="my-profile.html">${correoIngresado}</a>
 </li>`
+*/
+
+
+/*
+`
+<li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+      ${correoIngresado}
+    </a>
+    <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+      <li><a class="dropdown-item" href="my-profile.html">Mi Perfíl</a></li>
+      <li><a class="dropdown-item" href="cart.html">Carrito</a></li>
+      <li><a class="dropdown-item" href="index.html" id="endsession">Cerrar Sesión</a></li>
+    </ul>
+</li>`
+*/
