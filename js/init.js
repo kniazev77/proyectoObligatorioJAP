@@ -40,6 +40,8 @@ let getJSONData = function(url){
     });
 }
 
+// MANIPULACION PARA EL DESLOGUEO Y PARA QUE TOME EL NOMBRE DE USUARIO COMO TEXTO DEL DROPDOWN BUTTON
+
 let endsession = document.getElementById('endsession');
 let dropdownTitle = document.getElementById('navbarDarkDropdownMenuLink');
 let correoIngresado = localStorage.getItem("mail");

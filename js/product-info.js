@@ -21,15 +21,14 @@ async function productInfo() {
     let prodComment = "https://japceibal.github.io/emercado-api/products_comments/" + prodId + ".json"
     let llamada2 = await fetch(prodComment);
     comentariosProducto = await llamada2.json();
-  //  console.log(comentariosProducto);
-
-    //console.log(atributosProducto);
+    
     showDatos();
 
 } productInfo();
 
 function showDatos() {
 
+// CAMBIO DE ESTRUCTURA PARA INSERTAR LA INFO DEL PRODUCTO EN COMPARACION CON LA ENTREGA 3
     imgCarousel.innerHTML+=`
     <div class="carousel-item active">
         <img src="${arrayImages[0]}" class="d-block w-100" alt="...">
@@ -51,7 +50,7 @@ function showDatos() {
         
 
     for (let comment of comentariosProducto) {
-
+// AGREGADO DE FORMATO ESTRELLAS A LA CALIFICACION
         let stars = undefined;
         stars = ``;
         for (let i=1; i <= 5; i++){
@@ -75,6 +74,7 @@ function showDatos() {
     usuarioActivo.innerHTML+=`
     <input type="text" readonly class="form-control-plaintext" id="staticEmail" value=${correoIngresado}>
     `
+// AGREGADO DE PRODUCTOS RELACIONADOS 
 
     for (producto of atributosProducto.relatedProducts) {
         if (producto.id != localStorage.getItem("prodID")) {
