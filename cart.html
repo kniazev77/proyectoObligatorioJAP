@@ -45,11 +45,62 @@
   </nav>
   <main>
     <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
+      <div class="text-center p-4">
+        <h2>Tu Carrito</h2>
+      </div>
+      <caption>Tus productos al momento </caption>
+      <table class="table caption-top">
+        <thead class="table-dark">
+          <tr>
+            <th scope="col"></th>
+            <th scope="col" class="text-center">Nombre</th>
+            <th scope="col" class="text-center">Costo unitario</th>
+            <th scope="col" class="text-center">Cantidad</th>
+            <th scope="col" class="text-center">Sub-total</th>
+          </tr>
+        </thead>
+        <tbody id="cartBody">
+          
+        </tbody>
+      </table>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <div class="p-4">
+            <h5>Tipo de envío:</h5>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+              <label class="form-check-label" for="flexRadioDefault1">
+                Premium 2 a 5 días (15%)
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+              <label class="form-check-label" for="flexRadioDefault2">
+                Express 5 a 8 días (7%)
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+              <label class="form-check-label" for="flexRadioDefault2">
+                Standard 12 a 15 días (5%)
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="p-4">
+            <h5>Direccion de envío:</h5>
+            <input type="text" class="form-control" placeholder="Calle" style="margin: 2px;">
+            <input type="text" class="form-control" placeholder="Número de puerta" style="margin: 2px;">
+            <input type="text" class="form-control" placeholder="Esquina" style="margin: 2px;">
+          </div>
+        </div>
       </div>
     </div>
   </main>
+
   <footer class="text-muted">
     <div class="container">
       <p class="float-end">
