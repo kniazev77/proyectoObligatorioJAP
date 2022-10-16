@@ -30,6 +30,7 @@ cartStructure();
 
 
 function subTotalCalc(id,costU) {
+
     const factor = document.getElementById('inp'+id).value;
     const precioUnit = parseInt(costU);
 
