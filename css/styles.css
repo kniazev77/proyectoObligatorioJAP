@@ -217,3 +217,7 @@ a.custom-card:hover {
   margin-bottom: 5px;
   float: right;
 }
+
+.editboxes {
+  margin: 0px;
+}
