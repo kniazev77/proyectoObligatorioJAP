@@ -45,24 +45,68 @@
             <a class="nav-link" href="sell.html">Vender</a>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            
+            <a class="nav-link dropdown-toggle" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+
             </a>
             <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-              <li><a class="dropdown-item" href="my-profile.html">Mi Perfíl</a></li>
+              <li><a class="dropdown-item" href="my-profile.html" id="btnProfile">Mi Perfíl</a></li>
               <li><a class="dropdown-item" href="cart.html">Carrito</a></li>
               <li><a class="dropdown-item" href="index.html" id="endsession">Cerrar Sesión</a></li>
             </ul>
-        </li>
+          </li>
         </ul>
       </div>
     </div>
   </nav>
   <main>
     <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
+      <div class="row">
+        <div class="d-flex align-items-center justify-content-between" id="profile-img">
+          <h2>Perfil</h2>
+          <img src="/img/parrot.jpg" class="img-thumbnail img-fluid rounded-circle" style="width: 15%;">
+        </div>
       </div>
+      <hr>
+      <form class="row g-3" novalidate>
+        <div class="col-md-6">
+          <label for="validationServer01" class="form-label">Primer nombre</label>
+          <input type="text" class="form-control" id="validationServer01" required>
+          <div class="invalid-feedback"> Debes ingresar tu nombre</div>
+        </div>
+        <div class="col-md-6">
+          <label for="validationServer02" class="form-label">Segundo nombre</label>
+          <input type="text" class="form-control" id="validationServer02">
+        </div>
+        <div class="col-md-6">
+          <label for="validationServer03" class="form-label">Primer apellido</label>
+          <input type="text" class="form-control" id="validationServer03" required>
+          <div class="invalid-feedback">Debes ingresar tu apellido</div>
+        </div>
+        <div class="col-md-6">
+          <label for="validationServer04" class="form-label">Segundo apellido</label>
+          <input type="text" class="form-control" id="validationServer04">
+        </div>
+        <div class="col-md-6">
+          <label for="validationServerUsername" class="form-label">Email</label>
+          <div class="input-group has-validation">
+            <span class="input-group-text" id="inputGroupPrepend3">@</span>
+            <input type="email" class="form-control" id="validationServerUsername"
+              aria-describedby="inputGroupPrepend3 validationServerUsernameFeedback" required disabled="true">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <label for="validationServer05" class="form-label">Teléfono de contacto</label>
+          <input type="text" class="form-control" id="validationServer05">
+        </div>
+        <div class="mb-3">
+          <input type="file" class="form-control" aria-label="file example" id="addImg">
+          <div class="invalid-feedback"></div>
+        </div>
+        <div class="d-grid gap-2 col-6 mx-auto">
+          <button class="btn btn-success" type="submit" id="saveChanges">Guardar</button>
+        </div>
+      </form>
     </div>
   </main>
   <footer class="text-muted">
